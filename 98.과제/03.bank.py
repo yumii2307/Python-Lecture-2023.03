@@ -1,11 +1,16 @@
-import sys
+import sys, os, joblib
 import bank_util as bu
 
 # 계좌는 계좌번호, 소유주, 잔액으로 구성됨
 # 계좌번호는 생성된 시점의 시간, 분, 초 6자리로 구성됨
-account = [
-    {'계좌번호': '142603', '소유주': '홍길동', '잔액': 10000}
-]
+filename = 'account.jl'
+if os.path.exists('account.jl'):
+    account = joblib.load(filename)
+
+else:
+    account = [
+        {'계좌번호': '142603', '소유주': '홍길동', '잔액': 10000}
+    ]
 
 while True:
     try:
@@ -15,7 +20,9 @@ while True:
         continue
 
     if menu == 5:
+        joblib.dump(account, filename)
         sys.exit()
+
     if menu == 1:
         bu.create_account(account)
     elif menu == 2:
