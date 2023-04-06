@@ -22,5 +22,8 @@ def withdraw(account):
     ano, amount = cmd[0], int(cmd[1])
     for acc in account:
         if ano == acc['계좌번호']:
-            acc['잔액'] -= amount
+            if acc['잔액'] < amount:
+                print('잔액이 부족합니다.')
+            else:
+                acc['잔액'] -= amount
             return
