@@ -17,4 +17,4 @@ class Account:
         self.__balance -= amount
 
     def __str__(self):
-        return f'계좌번호: {self.ano}, 소유주: {self.owner}, 잔액: {self.__balance}'
+        return f'계좌번호: {self.ano}, 소유주: {self.owner}, 잔액: {self.__balance:9,d}'

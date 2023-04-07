@@ -29,9 +29,7 @@ while True:
         bu.create_account(acc_list)
     elif menu == 2:
         for acc in acc_list:
-            for key, val in acc.items():
-                print(f'{key}: {val}', end='\t')
-            print()
+            print(acc)
     elif menu == 3:
         bu.deposit(acc_list)
     elif menu == 4:
