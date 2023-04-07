@@ -33,8 +33,5 @@ def withdraw(acc_list):
     ano, amount = cmd[0], int(cmd[1])
     for acc in acc_list:
         if ano == acc.ano:
-            if acc.__balance < amount:
-                print('잔액이 부족합니다.')
-            else:
-                acc.withdraw(amount)
+            acc.withdraw(amount)
             return
